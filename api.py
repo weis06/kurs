@@ -133,6 +133,7 @@ async def update_user_joke(id: int, joke_update: JokeUpdate):
 class Secret(BaseModel):
     secret: str
 
+
 @app.delete("/userjoke/{id}")
 async def delete_user_joke(id: int, secret: Secret):
     cursor = await db.execute("SELECT * FROM jokes WHERE id = ?", (id,))
